@@ -1,37 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1em;
+    width: 800px;
+    height: 500px;
+    font-family: "Figtree", sans-serif;
+    transition: all 400ms;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  
+  .box {
+    position: relative;
+    background: var(--img) center center;
+    background-size: cover;
+    transition: all 400ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
-
+  
   .box::after {
     content: attr(data-text);
     position: absolute;
@@ -45,47 +32,46 @@ body {
     opacity: 0;
     transition: all 400ms;
   }
-
-  .hover\:box:hover {
-    filter: grayscale(0%) opacity(100%);
-  }
-
+  
   .container:hover .box {
     filter: grayscale(100%) opacity(24%);
   }
-
+  
   .box:hover::after {
     transform: translateY(0);
     opacity: 1;
     transition-delay: 400ms;
   }
-
+  
+  .container .box:hover {
+    filter: grayscale(0%) opacity(100%);
+  }
+  
+  .container:has(.box-1:hover) {
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+  }
+  
+  .container:has(.box-2:hover) {
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  }
+  
+  .container:has(.box-3:hover) {
+    grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+  }
+  
+  .container:has(.box-4:hover) {
+    grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
+  }
+  
+  .container:has(.box-5:hover) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 3fr;
+  }
+  
   .box:nth-child(odd) {
     transform: translateY(-16px);
   }
-
+  
   .box:nth-child(even) {
     transform: translateY(16px);
   }
   
-  /* Adaptación para columnas cambiantes */
-  .container:has(.box-1:hover) {
-    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
-  }
-
-  .container:has(.box-2:hover) {
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
-  }
-
-  .container:has(.box-3:hover) {
-    grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
-  }
-
-  .container:has(.box-4:hover) {
-    grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
-  }
-
-  .container:has(.box-5:hover) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 3fr;
-  }
-
