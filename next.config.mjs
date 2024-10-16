@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: ['nextui.org'],
+      domains: ['*', 'png.pngtree.com', 'static.wikia.nocookie.net', 'i.pinimg.com'],
     },
   };
   
