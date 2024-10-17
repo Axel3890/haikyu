@@ -38,10 +38,10 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-white p-8 min-h-screen flex flex-col justify-center">
+    <div className="bg-[#f3e8f9] p-8 min-h-screen flex flex-col justify-center">
       <div className="max-w-2xl mx-auto w-full">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Contáctanos</h1>
-        <p className="text-center text-gray-600 mb-8">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#5c37c0] text-center mb-4">Contáctanos</h1>
+        <p className="text-center text-[#7054af] mb-8">
           ¡Muestra el lado más auténtico de tu marca con una web hecha a medida!
         </p>
 
@@ -54,6 +54,7 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
+              className="border-[#724dc6] focus:ring-[#724dc6] focus:border-[#724dc6]"
             />
             <Input
               type="text"
@@ -62,6 +63,7 @@ export default function ContactForm() {
               value={formData.company}
               onChange={handleChange}
               required
+              className="border-[#724dc6] focus:ring-[#724dc6] focus:border-[#724dc6]"
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -72,6 +74,7 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               required
+              className="border-[#724dc6] focus:ring-[#724dc6] focus:border-[#724dc6]"
             />
             <Input
               type="email"
@@ -80,6 +83,7 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
+              className="border-[#724dc6] focus:ring-[#724dc6] focus:border-[#724dc6]"
             />
           </div>
           <Textarea
@@ -88,15 +92,13 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             required
-            className="min-h-[100px]"
+            className="min-h-[100px] border-[#724dc6] focus:ring-[#724dc6] focus:border-[#724dc6]"
           />
-          <Button type="submit" className="w-full bg-yellow-300 text-black hover:bg-yellow-400 rounded-full py-6 text-lg font-semibold">
+          <Button type="submit" className="w-full bg-[#9c6fe9] text-black hover:bg-[#c4a4fb] rounded-full py-6 text-lg font-semibold">
             Enviar mensaje
           </Button>
         </form>
       </div>
-
-
     </div>
   )
 }
